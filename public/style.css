@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9f9f9;
+}
+
+h1, h2 {
+  color: #000c;
+}
+
+header, main, footer {
+  text-align: center;
+}
+
+header, .form, main {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto 70px;
+}
+
+header button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+
+  background-color: #ff4f4f;
+  color: #fff;
+
+  font-weight: bold;
+  outline-style: none;
+}
+
+header button:hover {
+  cursor: pointer;
+}
+
+header .logo {
+  width: 120px;
+  margin: 50px 0;
+}
+
+header p {
+  font-size: 14px;
+}
+
+header h1, main h2 {
+  margin-bottom: 70px;
+}
+
+main h2 span {
+  color: #ff4f4f;
+}
+
+.form h2 {
+  text-align: right;
+  color: #fffe;
+  font-size: 18px;
+}
+
+section.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 45px;
+  align-items: center;
+
+  background-color: #ff4f4f;
+
+  padding: 16px 64px;
+
+  border-radius: 6px;
+}
+
+form input, form button {
+  width: 100%;
+
+  margin-bottom: 4px;
+
+  padding: 8px 16px;
+
+  border: 1px #fff8 solid;
+  border-radius: 4px;
+
+  outline-style: none;
+}
+
+form input {
+  background-color: transparent;
+}
+
+form input::placeholder {
+  color: #fffa;
+}
+
+form button {
+  font-weight: bold;
+}
+
+main .donors {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+main .blood {
+  color: #ff4f4f;
+  font-weight: bold;
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.blood::before {
+  content: '';
+  background-color: #ff4f4f11;
+
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  
+  /* Fazer a gotinha */
+  border-radius: 50%;
+  border-top-right-radius: 0;
+
+  transform: rotate(-45deg);
+}
+
+.donor p {
+  margin-top: 24px;
+  margin-bottom: 64px;
+  font-size: 14px;
+}
+
+footer {
+  margin-top: auto;
+  padding: 16px;
+  border: 1px solid #eee;
+}
+
+/* Funcionalidades com JS */
+section.form {
+  transition: all 0.3s;
+}
+
+section.form.hide {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  margin-top: -70px;
+}
