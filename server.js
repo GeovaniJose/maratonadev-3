@@ -26,6 +26,21 @@ nunjucks.configure('./', {
   noCache: true
 })
 
+// Conigurar a apresentação da página erro
+server.get('/erro', (req, res) => {
+  db.query(`SELECT * FROM donors`, (err, result) => {
+    // Fluxo de erro
+    if (err) return res.send('Erro no banco de dados.')
+
+    // Fluxo ideal
+    const donors = result.rows
+    return res.render('index.html', {
+      donors,
+      erro: 'Todos os campos são obrigatórios.'
+    })
+  })
+})
+
 // Conigurar a apresentação da página
 server.get('/', (req, res) => {
   db.query(`SELECT * FROM donors`, (err, result) => {
@@ -47,7 +62,7 @@ server.post('/', (req, res) => {
 
   // Se o name ou email ou blood igual a vazio
   if (name === '' || email === '' || blood === '') {
-    return res.send('Todos os campos são obrigatórios.')
+    return res.redirect('/erro')
   }
 
   // Colocar valores dentro do bd
